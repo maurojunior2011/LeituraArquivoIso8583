@@ -1,0 +1,1 @@
+# LeituraArquivoIso8583
