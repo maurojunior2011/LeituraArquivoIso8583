@@ -7,4 +7,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+		<Copy SourceFiles="../Files/financial_transaction_message.dat" DestinationFolder="$(OutDir)" />
+	</Target>
+
+	<Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+		<Copy SourceFiles="../Files/message_with_hex_bcd.dat" DestinationFolder="$(OutDir)" />
+	</Target>
+
+	<ItemGroup>
+	  <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+	</ItemGroup>
+
 </Project>
