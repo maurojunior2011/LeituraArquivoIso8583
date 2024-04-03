@@ -62,23 +62,31 @@ class Program
         {
             bodyFile = streamReader.ReadToEnd();
             List<string> dados = LerArquivo(bodyFile, Tipo.TipoA);
-            foreach (string item in dados)
+
+            using (StreamWriter outputFile = new StreamWriter("translate_financial_transaction_message.txt"))
             {
-                Console.WriteLine(item);
+                foreach (string item in dados)
+                {
+                    outputFile.WriteLine(item);
+                    Console.WriteLine(item); // LOG
+                }
             }
+
+            
         }
 
-        Console.WriteLine();
-        Console.WriteLine();
-        Console.WriteLine();
 
         using (StreamReader streamReader = new StreamReader("message_with_hex_bcd.dat", Encoding.GetEncoding(860)))
         {
             bodyFile = streamReader.ReadToEnd();
             List<string> dados = LerArquivo(bodyFile, Tipo.TipoB);
-            foreach (string item in dados)
+            using (StreamWriter outputFile = new StreamWriter("translate_message_with_hex_bcd.txt"))
             {
-                Console.WriteLine(item);
+                foreach (string item in dados)
+                {
+                    outputFile.WriteLine(item);
+                    Console.WriteLine(item); // LOG
+                }
             }
         }
     }
